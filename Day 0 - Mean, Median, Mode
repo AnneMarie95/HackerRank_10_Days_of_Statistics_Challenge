@@ -1,0 +1,40 @@
+def mean(x):
+    sum = 0
+    for elem in x:
+        sum += elem
+    median = sum/len(x)
+    return median
+
+def median(x):
+    x = sorted(x)
+    if(len(x) % 2 != 0):
+        median = (x[len(x) // 2]) / 2
+    else:
+        median =  (x[int(len(x) / 2)] + x[(int(len(x) / 2) - 1)]) / 2
+    return median
+
+def mode(x):
+    x = sorted(x)
+    #building frequency dictionary
+    dictionary = {}
+    for elem in x:
+        if elem in dictionary:
+            dictionary[elem] += 1
+        else:
+            dictionary[elem] = 1
+    max_val = 0
+    for key, value in dictionary.items():
+        if value > max_val:
+            max_val = value
+            mode = key
+    return mode
+
+def main():
+  n = int(input())
+  x = [int(val) for val in input().split()]
+  print(mean(x))
+  print(median(x))
+  print(mode(x))
+    
+if __name__== "__main__":
+  main()
