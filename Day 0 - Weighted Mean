@@ -1,0 +1,16 @@
+n = int(input())
+x = list(map(int, input().strip().split(' ')))
+w = list(map(int, input().strip().split(' ')))
+
+#calculating the numerator of the weighted mean formula
+sum1 = 0
+for i in range(0,n):
+    sum1 += (x[i] * w[i])
+
+#calculating the denominator    
+sum2 = 0
+for element in w:
+    sum2 += element
+
+weighted_mean = sum1/sum2
+print("{:.1f}".format(weighted_mean))
