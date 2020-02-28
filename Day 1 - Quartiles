@@ -1,0 +1,29 @@
+def median(dataset):
+    if len(dataset) % 2 == 0:
+        median = (dataset[len(dataset)//2] + dataset[(len(dataset)//2) - 1])//2
+    else:
+        median = dataset[len(dataset)//2]
+    return median
+
+def main():
+    dataset_size = int(input())
+    dataset = list(map(int, input().strip().split(" ")))
+
+    dataset.sort()
+    if(dataset_size % 2 == 0):
+        lower_half = dataset[:dataset_size//2]
+        upper_half = dataset[dataset_size//2:]
+    else:
+        lower_half = dataset[:dataset_size//2:]
+        upper_half = dataset[(dataset_size//2) + 1:]
+    q1 = median(lower_half)
+    q2 = median(dataset)
+    q3 = median(upper_half)
+
+    print(q1)
+    print(q2)
+    print(q3)
+
+if __name__ == "__main__":
+    main()
+
