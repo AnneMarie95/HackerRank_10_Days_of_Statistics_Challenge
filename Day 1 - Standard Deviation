@@ -1,0 +1,23 @@
+import math
+
+def mean(dataset):
+    sum = 0
+    for element in dataset:
+        sum += element
+    mean = sum/len(dataset)
+    return mean
+
+def main():
+    dataset_size = int(input())
+    dataset = list(map(int, input().strip().split(' ')))
+
+    mean_value = mean(dataset)
+    sum2 = 0
+    for element in dataset:
+        sum2 += ((element - mean_value) ** 2)
+    
+    std = math.sqrt(sum2/dataset_size)
+    print("{:.1f}".format(std))
+
+if __name__ == "__main__":
+    main()
