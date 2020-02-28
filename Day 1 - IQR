@@ -1,0 +1,35 @@
+def median(dataset):
+    if len(dataset) % 2 == 0:
+        median = (dataset[len(dataset)//2] + dataset[(len(dataset)//2) - 1])//2
+    else:
+        median = dataset[len(dataset)//2]
+    return median
+
+def main():
+    dataset_size = int(input())
+    dataset = list(map(int, input().strip().split(" ")))
+    frequency = list(map(int, input().strip().split(" ")))
+    s = []
+
+    for i in range(len(frequency)):
+        count = 0
+        while(count < frequency[i]):
+            s.append(dataset[i])
+            count += 1
+    s.sort()
+
+    if(len(s) % 2 == 0):
+        lower_half = s[:len(s)//2]
+        upper_half = s[len(s)//2:]
+    else:
+        lower_half = s[:len(s)//2:]
+        upper_half = s[(len(s)//2) + 1:]
+    q1 = median(lower_half)
+    q3 = median(upper_half)
+
+    iqr = q3 - q1
+
+    print("{:.1f}".format(iqr))
+
+if __name__ == "__main__":
+    main()
